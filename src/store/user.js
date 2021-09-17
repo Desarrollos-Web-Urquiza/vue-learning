@@ -6,7 +6,6 @@ export default  {
        username: "Soy username",
     },
     getters: {
-        title: state => state.title,
         username: state => state.username
     },
     actions: {

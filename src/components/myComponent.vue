@@ -7,6 +7,11 @@
         <h1>{{vuexTitle}}</h1>
         <h1>Hola {{username}}</h1>
         <hr/>
+        <button @click="onClicked()">Test button</button>
+        <br>
+        <input type="text" v-if="showButton">
+        <br>
+        <input type="text" v-if="showButton">
     </div>
 </template>
 
@@ -26,6 +31,7 @@ export default {
     return{
       subtitle: "Soy el subtitulo de mi componente!",
       surname: "Peréz",
+      showButton: false
     }
   },
   computed: {
@@ -39,14 +45,18 @@ export default {
   methods: {
     ...userMapActions([
       'GET_USERNAME'
-    ])
+    ]),
+    onClicked(){
+      console.log('Test button clicked')
+      this.showButton = true
+    }
   },
   mounted() {
     this.$emit('surnameChild', this.surname);
     console.log(this.$store)
     // let i = 1
     // setInterval(()=>{
-      this.GET_USERNAME(1)
+      // this.GET_USERNAME(1)
       // ++i
     // }, 1000)
   }
